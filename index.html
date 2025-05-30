@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heißluftfritteuse Umrechner | Garzeit & Temperatur Konverter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🍳 Heißluftfritteuse Umrechner</h1>
+            <p>Konvertieren Sie Garzeiten und Temperaturen von Backöfen und Fritteusen für Ihre Heißluftfritteuse</p>
+        </header>
+
+        <main>
+            <!-- Conversion Calculator -->
+            <section class="card conversion-section">
+                <div class="card__header">
+                    <h2>🔄 Umrechnung</h2>
+                </div>
+                <div class="card__body">
+                    <form id="conversionForm" class="conversion-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="originalTemp" class="form-label">Ursprüngliche Temperatur (°C)</label>
+                                <input type="number" id="originalTemp" class="form-control" min="50" max="250" placeholder="z.B. 180" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="originalTime" class="form-label">Ursprüngliche Zeit (Minuten)</label>
+                                <input type="number" id="originalTime" class="form-control" min="1" max="120" placeholder="z.B. 20" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Ursprüngliche Kochmethode</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="cookingMethod" value="convectionOven" required>
+                                    <span class="radio-label">🌪️ Backofen Umluft</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="cookingMethod" value="conventionalOven" required>
+                                    <span class="radio-label">🔥 Backofen Ober-/Unterhitze</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="cookingMethod" value="deepFryer" required>
+                                    <span class="radio-label">🫕 Fritteuse</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" class="btn btn--primary">Umrechnen</button>
+                            <button type="button" id="resetBtn" class="btn btn--secondary">Zurücksetzen</button>
+                        </div>
+                    </form>
+
+                    <div id="results" class="results hidden">
+                        <h3>🎯 Heißluftfritteuse Einstellungen</h3>
+                        <div class="results-display">
+                            <div class="result-item">
+                                <span class="result-label">Temperatur:</span>
+                                <span id="convertedTemp" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Zeit:</span>
+                                <span id="convertedTime" class="result-value"></span>
+                            </div>
+                        </div>
+                        <div class="conversion-note">
+                            <p><strong>💡 Tipp:</strong> Kontrollieren Sie das Essen gegen Ende der Garzeit und passen Sie bei Bedarf an.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Reference Table -->
+            <section class="card">
+                <div class="card__header">
+                    <h2>📋 Schnellübersicht - Beliebte Lebensmittel</h2>
+                </div>
+                <div class="card__body">
+                    <div class="table-container">
+                        <table class="food-table">
+                            <thead>
+                                <tr>
+                                    <th>Lebensmittel</th>
+                                    <th>Temperatur</th>
+                                    <th>Zeit (Min)</th>
+                                    <th>Kategorie</th>
+                                </tr>
+                            </thead>
+                            <tbody id="foodTableBody">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Safety Information -->
+            <section class="card">
+                <div class="card__header">
+                    <h2>🌡️ Kerntemperaturen für Fleisch</h2>
+                </div>
+                <div class="card__body">
+                    <div class="safety-grid">
+                        <div id="safetyTemperatures">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="card">
+                <div class="card__header">
+                    <h2>💡 Hilfreiche Tipps</h2>
+                </div>
+                <div class="card__body">
+                    <div class="tips-grid" id="tipsContainer">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Heißluftfritteuse Umrechner - Für perfekte Kochergebnisse</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
